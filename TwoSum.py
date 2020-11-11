@@ -48,3 +48,6 @@ def sumTwo3(lst, t):
       hasT[num] = i
 
 print(sumTwo3(lst, target))
+
+
+
