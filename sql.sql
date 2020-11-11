@@ -34,3 +34,16 @@ SELECT * FROM Customers WHERE FirstName="john" AND LastName="Coburn";
 DELETE FROM Customers WHERE CustomerID="2234"
 -- Check if record was removed
 SELECT * FROM Customers WHERE FirstName="john" AND LastName="Coburn"
+
+-- Write a statement that will look up a customer for us. If they replied to email invitation. Add it to the table.
+-- Use the customers email address, find their id and enter their party size into the anniversary attendees table
+SELECT email, CustomerID, PartySize FROM guestList;
+INSERT INTO anniversaryAttendees (CustomerId,PartySize) 
+VALUES ((SELECT CustomerID FROM Customers WHERE email="customer@email.com"), 4) 
+
+-- Search for a reservation by name and look for similarity
+SELECT Customers.FirstName, Customers.LastName, Reservations.Date,
+ Reservations.PartySize
+ FROM Reservations
+ JOIN Customers ON Customers.CustomerID=Reservations.CustomerID
+ WHERE Customers.lastName LIKE "Ste%"
