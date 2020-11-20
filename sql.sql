@@ -47,3 +47,23 @@ SELECT Customers.FirstName, Customers.LastName, Reservations.Date,
  FROM Reservations
  JOIN Customers ON Customers.CustomerID=Reservations.CustomerID
  WHERE Customers.lastName LIKE "Ste%"
+
+-- Create a reservation, first check if the customer exists in database
+SELECT * FROM Customers WHERE Email="email@email.com"
+-- If no customer then create a new one
+INSERT INTO Customers (FirstName, lastName, Email, phone ) VALUES ("New customer","new customer lastname", "new cust email", "999-999-8888")
+-- Check again into Customers table to get the customers id (foreign key) to be able to add it to reservations table
+SELECT * FROM Customers WHERE Email="Email@email.com"
+INSERT INTO Reservations (CustomerId, Date, PartySize) VALUE ("customerid","8/40/4040", "8")
+-- Double check by writing a query combining both tables
+SELECT Customers.firstName, Customers.LastName, Customers.email, Reservations.Date, Reservations.PartySize
+FROM Customers
+JOIN Reservations ON Customers.CustomerID=Reservations.CustomerID
+WHERE Customers.email="email@email.com"
+
+
+SELECT Customers.FirstName, Customers.LastName, Reservations.Date, Reservations.PartySize
+FROM Customers
+JOIN Reservations ON Customers.CustomerID=Reservations.CustomerID
+WHERE Customers.email="email.com"
+
