@@ -43,19 +43,34 @@ const continueGame = () => {
     }
   });
 };
-const handlGuess = () => {
-  enterNumber()
-    .then((result) => {
-      alert(`Dice: ${result.randomNumber}: you got ${result.points} points`);
-      continueGame().then((result) => {
-        if (result === 2) {
-          handleGuess();
-        } else {
-          alert('Game ends');
-        }
-      });
-    })
-    .catch((error) => alert(error));
+// const handlGuess = () => {
+//   enterNumber()
+//     .then((result) => {
+//       alert(`Dice: ${result.randomNumber}: you got ${result.points} points`);
+//       continueGame().then((result) => {
+//         if (result === 2) {
+//           handleGuess();
+//         } else {
+//           alert('Game ends');
+//         }
+//       });
+//     })
+//     .catch((error) => alert(error));
+// };
+
+const handleGuess = async () => {
+  try {
+    const result = await enterNumber();
+    alert(`Dice: ${result.random}: you got ${result.points} points`);
+    const isContinuing = await continueGame();
+    if (isContinuing) {
+      handleGuess();
+    } else {
+      alert('Game ends');
+    }
+  } catch (error) {
+    alert(error);
+  }
 };
 
 const start = () => {

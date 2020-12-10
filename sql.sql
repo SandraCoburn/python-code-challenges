@@ -67,3 +67,27 @@ FROM Customers
 JOIN Reservations ON Customers.CustomerID=Reservations.CustomerID
 WHERE Customers.email="email.com"
 
+-- Schema to create an order - Adding an order will involve 5 tables: Customers(FirstName|LastName), Dishes(DishId|Name|price)
+-- Orders(OrderId|CustomerId|OrderDate), OrdersDishes(OrderId|DishId), Dishes(Name)
+-- Challenge: 1.Create an order, 2.Find the customer, 3.create the order record, 4.add items to the order, 5.find the total cost
+-- 2. find cust
+SELECT CustomerId, FirstName, LastName, Phone
+FROM Customers
+WHERE Address="17512 Cedarwood" and LastName="Coburn"
+-- 1.New order
+INSERT INTO Orders (CustomerId,OrderDate) VALUES (70, "2020-10-11")
+-- 3 - to find order id
+SELECT * FROM Orders WHERE CustomerId="70" ORDER by OrderDate DESC
+--4- add more orders to order id 1001
+INSERT INTO OrdersDishes(OrderId, DishId) VALUES
+("1001", (SELECT DishId FROM Dishes WHERE Name="House Salad")),
+("1001", (SELECT DishId FROM Dishes WHERE Name="Mini Chese Burgers")),
+("1001", (SELECT DishId from Dishes WHERE Name="Blue smoothie"))
+-- Look up the order to be sure everything is right 
+SELECT * FROM Dishes JOIN OrdersDishes ON Dishes.DishId=OrdersDishes.DishId
+WHERE OrdersDishes.OrderId="1001"
+-- 5 - and look at the price
+SELECT SUM(Dishes.Price) FROM Dishes JOIN OrdersDishes ON
+Dishes.DishesId=OrdersDishes.DishesId WHERE OrdersDishes.OrderId="1001"
+
+
