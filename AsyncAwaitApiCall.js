@@ -25,5 +25,5 @@ const fetchCountryAndNeighbors = async () => {
   );
   console.log(neighbors);
 };
-
+//call the function
 fetchCountryAndNeighbors();
