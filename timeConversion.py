@@ -4,8 +4,11 @@ def timeConversion(s):
     minutes = s[3:5]
     seconds = s[6:8]
 
+    if int(hour) == 12 and amPm == 'AM':
+        zerohour = '00'
+        return zerohour + ':' + minutes + ':' + seconds
     if amPm == 'AM':
-        return s[:2]
+        return s[:-2]
     elif int(hour) == 12 and amPm == "PM":
         return hour + ":" + minutes + ":" + seconds
     else: 
