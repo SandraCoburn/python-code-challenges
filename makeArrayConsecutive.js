@@ -10,7 +10,7 @@ function makeArrayConsecutive2(statues) {
   //Loop array
   let missingNumbers = 0;
 
-  statues.sort();
+  statues.sort((a, b) => a - b);
   let current = 0;
   console.log('statues', statues);
   for (let i = 1; i < statues.length; i++) {
@@ -25,5 +25,23 @@ function makeArrayConsecutive2(statues) {
 
   return missingNumbers;
 }
+
+//second solution
+
+function makeArrayConsecutive3(statues) {
+  statues.sort((a, b) => a - b);
+
+  let min = statues[0];
+  let max = statues[statues.length - 1];
+  let missingNums = 0;
+
+  for (let i = min; i < max; i++) {
+    if (statues.indexOf(i) === -1) {
+      missingNums++;
+    }
+  }
+  return missingNums;
+}
+
 let statues = [6, 2, 3, 8];
-console.log(makeArrayConsecutive2(statues));
+console.log(makeArrayConsecutive3(statues));
