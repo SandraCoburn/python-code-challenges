@@ -13,3 +13,5 @@ function adjacentElementsProduct(inputArray) {
   }
   return highProductNum;
 }
+
+console.log(adjacentElementsProduct([2, 5, 1, 8, 2, 9]));
