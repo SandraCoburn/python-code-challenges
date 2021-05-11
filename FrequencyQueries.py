@@ -17,7 +17,11 @@ Return an array with the output: .
 
 Function Description
 
-Complete the freqQuery function in the editor below. It must return an array of integers where each element is a  if there is at least one element value with the queried number of occurrences in the current array, or 0 if there is not.
+Complete the freqQuery function in the editor below. 
+It must return an array of integers where each element is a  
+
+if there is at least one element value with the queried number of occurrences in the current array,
+ or 0 if there is not.
 
 freqQuery has the following parameter(s):
 
@@ -75,3 +79,6 @@ def freqQuery(queries):
                answer.append(0)
             # if not, add 0 to answer
     return answer
+
+\
+    
