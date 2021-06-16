@@ -81,3 +81,28 @@ function indexMultiplier(arr) {
   }
 }
 console.log('index mult', indexMultiplier([9, 3, 7, -7]));
+
+function indexMul(arr) {
+  if (arr.length) {
+    let count = 0;
+    let multArr = arr.map((num, ind) => num * ind);
+    console.log('new array', multArr);
+    let total = multArr.reduce((total, num) => total + num, 0);
+    return total;
+  } else {
+    return 0;
+  }
+}
+console.log('index mult 2', indexMul([9, 3, 7, -7]));
+
+function filterArr(arr) {
+  //filter for only string
+  const filtered = [];
+  arr.forEach((num) => {
+    if (typeof num === 'string') {
+      filtered.push(num);
+    }
+  });
+  return filtered;
+}
+console.log('filtered numbers', filterArr([1, 2, 'aasf', '1', '123', 123]));
