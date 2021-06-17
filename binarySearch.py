@@ -18,4 +18,5 @@ def binary_search(list, search_item):
       print(low)
   return found
 
+arr = [5,60,44,55,66,77,8]
 print(binary_search(arr, 55))

@@ -7,31 +7,32 @@ const Clock = () => {
 
   function hoursUp() {
     if (Number(hours) === 23) {
-      return setHours(initialState);
+      setHours(initialState);
     } else {
-      return setHours((hours) => Number(hours) + 1);
+      setHours((hours) => Number(hours) + 1);
     }
   }
   function hoursDown() {
     if (Number(hours) === 0) {
-      return setHours(initialState);
+      setHours(23);
     } else {
-      return setHours((hours) => Number(hours) - 1);
+      setHours((hours) => Number(hours) - 1);
     }
   }
   function minutesUP() {
     if (Number(minutes) === 59) {
       hoursUp();
-      return setMinutes(initialState);
+      setMinutes(initialState);
     } else {
-      return setMinutes((minutes) => Number(minutes) + 1);
+      setMinutes((minutes) => Number(minutes) + 1);
     }
   }
   function minutesDown() {
     if (Number(minutes) === 0) {
-      return setMinutes(initialState);
+      hoursDown();
+      setMinutes(59);
     } else {
-      return setMinutes((minutes) => Number(minutes) - 1);
+      setMinutes((minutes) => Number(minutes) - 1);
     }
   }
   function formatTime(time) {
