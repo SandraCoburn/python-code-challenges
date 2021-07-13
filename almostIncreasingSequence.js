@@ -38,3 +38,17 @@ function almostIncreasingSequence2(sequence) {
   });
   return found <= 1;
 }
+
+function almostIncreasingSequence3(sequence) {
+  var inc = true;
+  for (var i = 0; i < sequence.length; i++) {
+    if (sequence[i] >= sequence[i + 1]) {
+      if (inc) {
+        inc = false;
+      } else {
+        return false;
+      }
+    }
+  }
+  return true;
+}
