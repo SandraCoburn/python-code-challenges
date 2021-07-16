@@ -63,13 +63,15 @@ function primeFactors(number) {
     while (number % n === 0) {
       number = number / n;
       console.log('Factor = ' + n);
+      return n;
     }
   }
   if (number > 1) {
     console.log('last factor =' + number);
+    return number;
   }
 }
-console.log(primeFactors(36));
+console.log('Prime factors', primeFactors(36));
 
 function isPrime(n) {
   //first prime is 2
