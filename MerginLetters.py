@@ -1,14 +1,20 @@
-import itertools
+
 
 def mergingLetters(s, t):
     #edge cases
-   
+    mergedStr = ""
+    firstChar = list(s)
+    secondChar = list(t)
+
+
+    for i, ele in enumerate(secondChar):
+        if i < len(firstChar):
+            mergedStr = mergedStr + firstChar[i]
+            print('first pointer', firstChar[i], mergedStr)
+        if i < len(secondChar):
+            mergedStr = mergedStr + secondChar[i]
+            print('second pointer', secondChar[i], "merged",mergedStr) 
+    return mergedStr    
     
-    if len(s) == len(t):
-        return "".join(i for j in zip(s,t) for i in j)
-    else:
-        longer, shorter = (s, t) if len(s) > len(t) else (t,s)
-        shorter = shorter + shorter[-1] * (len(longer) - len(shorter))
-        print("longer",longer)
-        return "".join(i for j in zip(shorter,longer) for i in j)
-        
+ 
+print(mergingLetters('abcd', 'jjjjjjj'))
