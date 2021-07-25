@@ -1,3 +1,11 @@
+//Questions to ask the interviewer:
+// Are there duplicate numbers in the array
+// Are all the numbers positive or can it be any negatives
+//Will there allways be a solution available
+//What do we return if there is no solution
+//Can there be multiple pairs that add up to the value?
+
+//Two pointer technique
 const findTwoSum = (nums, target) => {
   //Brute force, if there is a solutions this will find it:
   for (let p1 = 0; p1 < nums.length; p1++) {
