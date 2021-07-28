@@ -100,3 +100,25 @@ let allBooks = friends.reduce(
 );
 
 console.log('All books', allBooks); //All books ['Alphabet','Bible','Harry Potter','War and peace','Romeo and Juliet','The Lord of the Rings','The Shining']
+
+//Remove duplicate items in an array
+let myArray1 = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd'];
+let myArrayWithNoDuplicates = myArray1.reduce((acc, currVal) => {
+  if (acc.indexOf(currVal) === -1) {
+    acc.push(currVal);
+  }
+  return acc;
+}, []);
+console.log('No duplicates', myArrayWithNoDuplicates); //No duplicates [ 'a', 'b', 'c', 'e', 'd' ]
+
+//Double Positive numbers in an array
+const myNumbersArray = [-5, 6, 2, 0];
+const doubledPositiveNumbers = myNumbersArray.reduce((acc, currVal) => {
+  if (currVal > 0) {
+    const doubled = currVal * 2;
+    acc.push(doubled);
+  }
+  return acc;
+}, []);
+
+console.log('Doubled Positives', doubledPositiveNumbers); //Doubled Positives [ 12, 4 ]
